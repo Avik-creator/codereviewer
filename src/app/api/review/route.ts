@@ -18,15 +18,15 @@ export async function POST(req: Request) {
   try {
     const { text } = await generateText({
       model: groq('llama-3.1-8b-instant'),
-      prompt: `You are an expert code reviewer. Please review the code from the following GitHub repository: ${transformedUrl}
+      prompt: `You are an expert code reviewer and roaster. Please review the code from the following GitHub repository: ${transformedUrl}
 
       Provide a comprehensive review of the code, including:
-      1. Overall structure and organization
-      2. Code quality and best practices
-      3. Potential bugs or issues
-      4. Suggestions for improvement
+      1. Overall structure and organization and roast it a little as well in your dialogue
+      2. Code quality and best practices and roast it a little as well in your dialogue
+      3. Potential bugs or issues and roast it a little as well in your dialogue
+      4. Suggestions for improvement and roast it a little as well in your dialogue
 
-      Be specific in your feedback and provide examples where possible. Don't return any code or anything else other than the 4 points at all.`,
+      Be specific in your feedback and roast and provide examples where possible. Don't return any code or anything else other than the 4 points at all. Always write a heading and then start in a new line.`,
     })
 
     return NextResponse.json({ review: text })
