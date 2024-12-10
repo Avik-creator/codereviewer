@@ -13,7 +13,7 @@ export async function POST(req: Request) {
   // Transform the URL
   const parsedUrl = new URL(url)
   const [, username, repo] = parsedUrl.pathname.split('/')
-  const transformedUrl = `https://uithub.com/${username}/${repo}?ext=js,jsx,ts,tsx`
+  const transformedUrl = `https://uithub.com/${username}/${repo}?ext=js,jsx,ts,tsx&maxTokens=1000000`
 
   try {
     const { text } = await generateText({
